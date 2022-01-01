@@ -11,16 +11,6 @@
         <h1 class="a-size-large a-spacing-none a-text-normal">
         Below are the All listed Products.
         </h1>
-          <div class="a-spacing-large"></div>
-          <nuxt-link to="/products" class="a-button-buy-again">
-            Add a new Product
-          </nuxt-link>
-          <!-- <a href="#" class="a-button-history margin-right-10">
-            Add a new Category
-          </a>
-          <a href="#" class="a-button-history margin-right-10">
-            Add a new Owner
-          </a> -->
       </div>
     </div>
   </div>
@@ -79,19 +69,26 @@
       </div>
     </div>
     </div>
+  <div class="a-spacing-large"></div>
+          <nuxt-link to="/products" class="a-button-buy-again">
+            Add a new Product
+          </nuxt-link>
   </div>
 </main>
 </template>
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    try {
-      let response = await $axios.$get("https://brahmapuri-server.herokuapp.com/api/products")
-      return {products:response.products}
-    } catch (err) {
-      console.log(err)
+  data(){
+    return {
+      products: ''
     }
+  },
+   mounted () {
+    this.$axios.$get
+      ('https://brahmapuri-server.herokuapp.com/api/products')
+      .then(response => (this.products=response.products))
+      .catch(err =>{console.log(err)})
   },
   methods: {
     async onDeleteProduct(id, index){

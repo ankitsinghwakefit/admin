@@ -49,7 +49,7 @@
                   <label class="choosefile-button">
                     <i class="fal fa-plus"></i>
                     <input type="file" @change="onFileSelected"/>
-                    <p style="margin-top: -70px, width: 100%">{{fileName}}</p>
+                    <p style="width: max-content">{{fileName}}</p>
                   </label>
                 </div>
               </div>
