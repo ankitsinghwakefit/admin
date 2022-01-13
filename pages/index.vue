@@ -28,7 +28,7 @@
         <!-- product title -->
         <div class="a-spacing-top-base asin-title">
           <span class="a-text-normal">
-            <div class="pl3n-sc-truncated">Product Name: {{product.title}}</div>
+            <div class="pl3n-sc-truncated">{{product.title}}</div>
           </span>
         </div>
         <!-- product rating -->
@@ -46,19 +46,7 @@
           <!-- product priceing -->
         <div class="a-row">
           <span class="a-size-base a-color-price">
-            <span class="p13n-sc-price">Rs. {{product.price}}/-</span>
-          </span>
-        </div>
-        <!-- product description -->
-        <div class="a-row">
-          <span class="a-size-base a-text-normal">
-            <span class="p13n-sc-price">Description: {{product.description}}</span>
-          </span>
-        </div>
-        <!-- product stock quantity -->
-        <div class="a-row">
-          <span class="a-size-base a-text-normal">
-            <span class="p13n-sc-price">Stock Quantity: {{product.stockQuantity}}</span>
+            <span class="p13n-sc-price">{{product.price}}</span>
           </span>
         </div>
         <!-- product buttons -->
@@ -69,9 +57,12 @@
       </div>
     </div>
     </div>
-  <div class="a-spacing-large"></div>
+    <div class="a-spacing-large"></div>
           <nuxt-link to="/products" class="a-button-buy-again">
             Add a new Product
+          </nuxt-link>
+           <nuxt-link to="/orders" class="a-button-buy-again">
+            Check Orders
           </nuxt-link>
   </div>
 </main>
@@ -79,17 +70,23 @@
 
 <script>
 export default {
+  // async asyncData({ $axios }) {
+  //   try {
+  //     let response = await $axios.$get("https://brahmapuri-server.herokuapp.com/api/products")
+  //     return {products:response.products}
+  //   } catch (err) {
+  //     console.log(err)
   data(){
-    return {
-      products: ''
-    }
-  },
+      return{
+        products: ''
+      }
+    },
    mounted () {
     this.$axios.$get
       ('https://brahmapuri-server.herokuapp.com/api/products')
       .then(response => (this.products=response.products))
       .catch(err =>{console.log(err)})
-  },
+   },
   methods: {
     async onDeleteProduct(id, index){
       try{
@@ -105,9 +102,3 @@ export default {
   }
 }
 </script>
-
-<style>
-body {
-  background-color: rgb(255, 255, 255) !important;
-}
-</style>
