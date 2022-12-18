@@ -123,7 +123,7 @@ export default {
       // formData.description = this.description
       // formData.stockQuantity = this.stockQuantity
       // formData.photo = {selectedFile:this.selectedFile, fileName:this.selectedFile.name}
-      let result = await this.$axios.$post('https://brahmapuri-server.herokuapp.com/api/products', data)
+      let result = await this.$axios.$post('https://rose-important-hedgehog.cyclic.app/api/products', data)
       this.$router.push("/")
     } catch (err) {
       console.log(err)

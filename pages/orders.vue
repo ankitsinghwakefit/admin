@@ -47,7 +47,7 @@ export default {
     }
   },
   mounted(){
-    this.$axios.$get("https://brahmapuri-server.herokuapp.com/api/orders").then(res=>{
+    this.$axios.$get("https://rose-important-hedgehog.cyclic.app/api/orders").then(res=>{
       this.orders = res.orders
       this.setMyData()
       console.log("orders", this.orders)
@@ -73,7 +73,7 @@ export default {
       console.log("orders after", this.orderProducts)
     },
     deleteOrder(orderId){
-      this.$axios.$delete(`https://brahmapuri-server.herokuapp.com/api/orders/${orderId}`).then(res=>{
+      this.$axios.$delete(`https://rose-important-hedgehog.cyclic.app/api/orders/${orderId}`).then(res=>{
         console.log("res", res)
         if(res.success){
           alert("Order has been deleted...")

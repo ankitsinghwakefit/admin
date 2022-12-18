@@ -72,7 +72,7 @@
 export default {
   // async asyncData({ $axios }) {
   //   try {
-  //     let response = await $axios.$get("https://brahmapuri-server.herokuapp.com/api/products")
+  //     let response = await $axios.$get("https://rose-important-hedgehog.cyclic.app/api/products")
   //     return {products:response.products}
   //   } catch (err) {
   //     console.log(err)
@@ -83,14 +83,14 @@ export default {
     },
    mounted () {
     this.$axios.$get
-      ('https://brahmapuri-server.herokuapp.com/api/products')
+      ('https://rose-important-hedgehog.cyclic.app/api/products')
       .then(response => (this.products=response.products))
       .catch(err =>{console.log(err)})
    },
   methods: {
     async onDeleteProduct(id, index){
       try{
-        let response = await this.$axios.$delete(`https://brahmapuri-server.herokuapp.com/api/products/${id}`)
+        let response = await this.$axios.$delete(`https://rose-important-hedgehog.cyclic.app/api/products/${id}`)
 
         if(response.status){
           this.products.splice(index, 1)

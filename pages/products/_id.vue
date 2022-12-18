@@ -77,7 +77,7 @@ export default {
     try {
     // let categories = $axios.$get("http://localhost:8000/api/categories")
     // let owners = $axios.$get("http://localhost:8000/api/owners")
-    let product = $axios.$get(`https://brahmapuri-server.herokuapp.com/api/products/${params.id}`)
+    let product = $axios.$get(`https://rose-important-hedgehog.cyclic.app/api/products/${params.id}`)
     const [productReseponse] = await Promise.all([
       product
     ])
@@ -125,7 +125,7 @@ export default {
       // formData.categoryID = this.categoryID
       // formData.photo = this.fileName
       // data.append("photo", this.selectedFile, this.selectedFile.name)
-      let result = await this.$axios.$put(`https://brahmapuri-server.herokuapp.com/api/products/${this.$route.params.id}`, data)
+      let result = await this.$axios.$put(`https://rose-important-hedgehog.cyclic.app/api/products/${this.$route.params.id}`, data)
       // console.log("result", result)
       this.$router.push("/")
     } catch (err) {
